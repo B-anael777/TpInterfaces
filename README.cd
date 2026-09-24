@@ -59,3 +59,12 @@
    - La méthode `Exporter()`.
 5. **Une classe C# peut-elle implémenter plusieurs interfaces ?**
    - Oui, une classe peut implémenter autant d'interfaces qu'elle souhaite.
+
+## Exercice 7 — Héritage et interface
+### Questions
+1. **Facture EST UN Document :** Héritage
+2. **Facture PEUT ÊTRE imprimée :** Interface
+
+### Complétion
+- L'héritage décrit principalement ce qu'un objet **EST**.
+- Une interface décrit principalement ce qu'un objet **SAIT FAIRE** (ou possède comme capacité).
