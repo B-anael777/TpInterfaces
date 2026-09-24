@@ -1,9 +1,7 @@
-﻿Facture facture = new Facture("FAC-2026-01", 100.00m, 0.20m);
+﻿var facture = new Facture("FAC-2026-01", 150.00m);
 
-// Utilisation en tant qu'IAffichable
-IAffichable affichable = facture;
-affichable.Afficher();
+IImprimable imprimable = facture;
+IExportable exportable = facture;
 
-// Utilisation en tant qu'IPayable
-IPayable payable = facture;
-Console.WriteLine($"Montant à payer : {payable.ObtenirMontant():F2} €");
+imprimable.Imprimer();
+exportable.Exporter("facture.pdf");

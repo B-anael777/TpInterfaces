@@ -1,90 +1,61 @@
 # TP Interfaces en C# — BTS SIO 2e année
 
 ## Exercice 1 — Première interface
-
-### Questions
 1. **Que signifie `: IAffichable` dans la déclaration de `Produit` ?**
-   - Cela signifie que la classe `Produit` implémente l'interface `IAffichable`. Elle s'engage donc à respecter le contrat défini par cette interface.
-
+   - Cela indique que `Produit` implémente l'interface `IAffichable` et s'engage à respecter son contrat.
 2. **Que se passe-t-il si la classe `Produit` ne contient pas la méthode `Afficher()` ?**
-   - Le code ne compile pas. C# renvoie une erreur d'implication de contrat car la classe promet d'implémenter `IAffichable` sans en fournir les méthodes obligatoires.
-
+   - Une erreur de compilation se produit car la classe ne respecte pas le contrat imposé par l'interface.
 3. **Pourquoi dit-on qu'une interface constitue un contrat ?**
-   - Parce qu'elle oblige toute classe qui l'implémente à fournir le code de toutes les méthodes définies dans l'interface, garantissant ainsi un comportement commun.
-
+   - Parce qu'elle oblige toute classe qui l'implémente à fournir le code de toutes ses méthodes déclarées.
 
 ## Exercice 2 — Plusieurs classes, un même contrat
-
-### Questions
 1. **Produit hérite-t-il de Client ?**
-   - Non, il n'y a aucun lien d'héritage entre `Produit` et `Client`.
-
+   - Non.
 2. **Client hérite-t-il de Produit ?**
-   - Non plus.
-
+   - Non.
 3. **Quelle capacité possèdent pourtant les deux classes ?**
    - Elles possèdent toutes les deux la capacité d'être affichées via la méthode `Afficher()`.
-
 4. **Pourquoi une interface est-elle adaptée à cette situation ?**
-   - Parce qu'elle permet d'imposer une capacité commune (`IAffichable`) à des classes qui n'ont aucun rapport hiérarchique ni aucun code en commun.
-
+   - Elle permet d'imposer un comportement commun à des classes sans rapport hiérarchique ni code hérité.
 
 ## Exercice 3 — Une variable de type interface
-
-### Questions
 1. **Quel est le type de la variable `element` ?**
    - Le type de la variable est l'interface `IAffichable`.
-
 2. **Quel est le type réel de l'objet dans le premier exemple ?**
-   - Le type réel est `Produit`.
-
+   - `Produit`.
 3. **Quel est le type réel de l'objet dans le deuxième exemple ?**
-   - Le type réel est `Client`.
-
+   - `Client`.
 4. **Pourquoi `element.Afficher()` fonctionne-t-il dans les deux cas ?**
-   - Parce que `IAffichable` garantit la présence de la méthode `Afficher()` sur tout objet qui l'implémente, peu importe sa classe réelle.
-
+   - Parce que le type `IAffichable` garantit la présence de la méthode `Afficher()` sur l'instance.
 5. **Peut-on écrire `element.Prix` ? Pourquoi ?**
-   - Non. La variable est de type `IAffichable`, le compilateur ne connaît donc que les membres déclarés dans l'interface `IAffichable`. La propriété `Prix` n'existant que dans `Produit`, elle n'est pas accessible directement depuis cette variable.
-
+   - Non, car la variable est typée par `IAffichable`, qui ne contient pas la propriété `Prix`.
 
 ## Exercice 4 — Une méthode utilisant une interface
-
-### Questions
-1. **A-t-il été nécessaire de modifier `AfficherElement()` pour afficher la `Commande` ?**
-   - Non, aucune modification n'a été nécessaire.
-
+1. **A-t-il été nécessaire de modifier `AfficherElement()` ?**
+   - Non.
 2. **Pourquoi cette méthode peut-elle accepter des objets de classes différentes ?**
-   - Parce que son paramètre est de type `IAffichable`. La méthode accepte donc n'importe quelle instance d'une classe qui implémente cette interface.
-
+   - Parce qu'elle prend en paramètre le type interface `IAffichable`.
 3. **Quel serait l'inconvénient d'écrire uniquement `public static void AfficherProduit(Produit produit)` ?**
-   - On devrait dupliquer la méthode pour chaque type d'objet (`AfficherClient`, `AfficherCommande`, etc.), ce qui crée du code redondant, rigide et difficile à maintenir.
-
+   - Il faudrait dupliquer la méthode pour chaque nouveau type d'objet (`AfficherClient`, `AfficherCommande`), ce qui rend le code rigide et répétitif.
 
 ## Exercice 5 — Une collection d'interfaces
-
-### Questions
 1. **Comment une même collection peut-elle contenir des `Produit`, des `Client` et des `Commande` ?**
-   - Parce que la liste est typée par l'interface `List<IAffichable>`. Elle accepte donc n'importe quel objet dont la classe implémente `IAffichable`.
-
+   - La liste est typée `List<IAffichable>`, elle peut donc stocker tout objet implémentant cette interface.
 2. **Quel est leur point commun ?**
-   - Elles implémentent toutes l'interface `IAffichable` (elles ont toutes un contrat commun).
-
+   - Elles implémentent toutes l'interface `IAffichable`.
 3. **Quelle méthode le compilateur sait-il pouvoir appeler sur chaque élément ?**
-   - Le compilateur sait qu'il peut appeler la méthode `Afficher()`.
-
+   - La méthode `Afficher()`.
 4. **Le programme a-t-il besoin de connaître le type exact de chaque objet pour appeler `Afficher()` ?**
-   - Non, le compilateur s'en fiche. Grâce au polymorphisme, C# appelle automatiquement la bonne méthode `Afficher()` de chaque objet à l'exécution.
+   - Non, le polymorphisme exécute automatiquement la bonne méthode à l'exécution.
 
-
-## Exercice 6 — Implémenter plusieurs interfaces
-
-### Questions
-1. **Une classe C# peut-elle hériter de plusieurs classes mères ?**
-   - Non, le C# ne supporte pas l'héritage multiple de classes.
-
-2. **Une classe C# peut-elle implémenter plusieurs interfaces ?**
-   - Oui, une classe peut implémenter autant d'interfaces qu'elle le souhaite.
-
-3. **Pourquoi cette possibilité est-elle très utile en développement d'applications ?**
-   - Cela permet d'accorder plusieurs rôles ou capacités indépendantes à un même objet (ex: être à la fois affichable, payable et exportable) sans bloquer la hiérarchie d'héritage.
+## Exercice 6 — Deux capacités différentes
+1. **Combien d'objets `Facture` ont été créés ?**
+   - Un seul.
+2. **`imprimable` et `exportable` peuvent-ils référencer le même objet ?**
+   - Oui, ils pointent vers la même instance en mémoire.
+3. **Quelle méthode est accessible avec `imprimable` ?**
+   - La méthode `Imprimer()`.
+4. **Quelle méthode est accessible avec `exportable` ?**
+   - La méthode `Exporter()`.
+5. **Une classe C# peut-elle implémenter plusieurs interfaces ?**
+   - Oui, une classe peut implémenter autant d'interfaces qu'elle souhaite.

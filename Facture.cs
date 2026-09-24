@@ -1,23 +1,21 @@
-public class Facture : IAffichable, IPayable
+public class Facture : IImprimable, IExportable
 {
     public string Numero { get; set; }
-    public decimal MontantHT { get; set; }
-    public decimal Tva { get; set; } // Exemple: 0.20 pour 20%
+    public decimal Montant { get; set; }
 
-    public Facture(string numero, decimal montantHT, decimal tva)
+    public Facture(string numero, decimal montant)
     {
         Numero = numero;
-        MontantHT = montantHT;
-        Tva = tva;
+        Montant = montant;
     }
 
-    public void Afficher()
+    public void Imprimer()
     {
-        Console.WriteLine($"Facture {Numero} - Total TTC : {ObtenirMontant():F2} €");
+        Console.WriteLine($"Impression de la facture n°{Numero} ({Montant:F2} €)");
     }
 
-    public decimal ObtenirMontant()
+    public void Exporter(string fichier)
     {
-        return MontantHT * (1 + Tva);
+        Console.WriteLine($"Export de la facture n°{Numero} vers : {fichier}");
     }
 }
