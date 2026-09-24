@@ -1,15 +1,9 @@
-﻿var produit = new Produit("Clavier", 49.90m);
-var client = new Client("Alice", "alice@example.com");
-var commande = new Commande(101, 150.00m);
+﻿Facture facture = new Facture("FAC-2026-01", 100.00m, 0.20m);
 
-List<IAffichable> elements = new List<IAffichable>
-{
-    produit,
-    client,
-    commande
-};
+// Utilisation en tant qu'IAffichable
+IAffichable affichable = facture;
+affichable.Afficher();
 
-foreach (var element in elements)
-{
-    element.Afficher();
-}
+// Utilisation en tant qu'IPayable
+IPayable payable = facture;
+Console.WriteLine($"Montant à payer : {payable.ObtenirMontant():F2} €");

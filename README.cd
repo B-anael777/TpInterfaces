@@ -75,3 +75,16 @@
 
 4. **Le programme a-t-il besoin de connaître le type exact de chaque objet pour appeler `Afficher()` ?**
    - Non, le compilateur s'en fiche. Grâce au polymorphisme, C# appelle automatiquement la bonne méthode `Afficher()` de chaque objet à l'exécution.
+
+
+## Exercice 6 — Implémenter plusieurs interfaces
+
+### Questions
+1. **Une classe C# peut-elle hériter de plusieurs classes mères ?**
+   - Non, le C# ne supporte pas l'héritage multiple de classes.
+
+2. **Une classe C# peut-elle implémenter plusieurs interfaces ?**
+   - Oui, une classe peut implémenter autant d'interfaces qu'elle le souhaite.
+
+3. **Pourquoi cette possibilité est-elle très utile en développement d'applications ?**
+   - Cela permet d'accorder plusieurs rôles ou capacités indépendantes à un même objet (ex: être à la fois affichable, payable et exportable) sans bloquer la hiérarchie d'héritage.

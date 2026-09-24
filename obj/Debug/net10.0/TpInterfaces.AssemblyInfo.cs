@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TpInterfaces")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ac75b7505a1a5779aa95aae2e26a87f4b4ebe783")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+910b1698ac4b79154c4073b2c2053d829d588c75")]
 [assembly: System.Reflection.AssemblyProductAttribute("TpInterfaces")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TpInterfaces")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
