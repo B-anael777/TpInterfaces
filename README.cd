@@ -1,0 +1,48 @@
+# TP Interfaces en C# — BTS SIO 2e année
+
+## Exercice 1 — Première interface
+
+### Questions
+1. **Que signifie `: IAffichable` dans la déclaration de `Produit` ?**
+   - Cela signifie que la classe `Produit` implémente l'interface `IAffichable`. Elle s'engage donc à respecter le contrat défini par cette interface.
+
+2. **Que se passe-t-il si la classe `Produit` ne contient pas la méthode `Afficher()` ?**
+   - Le code ne compile pas. C# renvoie une erreur d'implication de contrat car la classe promet d'implémenter `IAffichable` sans en fournir les méthodes obligatoires.
+
+3. **Pourquoi dit-on qu'une interface constitue un contrat ?**
+   - Parce qu'elle oblige toute classe qui l'implémente à fournir le code de toutes les méthodes définies dans l'interface, garantissant ainsi un comportement commun.
+
+
+## Exercice 2 — Plusieurs classes, un même contrat
+
+### Questions
+1. **Produit hérite-t-il de Client ?**
+   - Non, il n'y a aucun lien d'héritage entre `Produit` et `Client`.
+
+2. **Client hérite-t-il de Produit ?**
+   - Non plus.
+
+3. **Quelle capacité possèdent pourtant les deux classes ?**
+   - Elles possèdent toutes les deux la capacité d'être affichées via la méthode `Afficher()`.
+
+4. **Pourquoi une interface est-elle adaptée à cette situation ?**
+   - Parce qu'elle permet d'imposer une capacité commune (`IAffichable`) à des classes qui n'ont aucun rapport hiérarchique ni aucun code en commun.
+
+
+## Exercice 3 — Une variable de type interface
+
+### Questions
+1. **Quel est le type de la variable `element` ?**
+   - Le type de la variable est l'interface `IAffichable`.
+
+2. **Quel est le type réel de l'objet dans le premier exemple ?**
+   - Le type réel est `Produit`.
+
+3. **Quel est le type réel de l'objet dans le deuxième exemple ?**
+   - Le type réel est `Client`.
+
+4. **Pourquoi `element.Afficher()` fonctionne-t-il dans les deux cas ?**
+   - Parce que `IAffichable` garantit la présence de la méthode `Afficher()` sur tout objet qui l'implémente, peu importe sa classe réelle.
+
+5. **Peut-on écrire `element.Prix` ? Pourquoi ?**
+   - Non. La variable est de type `IAffichable`, le compilateur ne connaît donc que les membres déclarés dans l'interface `IAffichable`. La propriété `Prix` n'existant que dans `Produit`, elle n'est pas accessible directement depuis cette variable.

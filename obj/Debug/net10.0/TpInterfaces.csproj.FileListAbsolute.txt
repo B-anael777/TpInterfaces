@@ -1,0 +1,15 @@
+C:\Users\BLEURVACQ\TpInterfaces\bin\Debug\net10.0\TpInterfaces.exe
+C:\Users\BLEURVACQ\TpInterfaces\bin\Debug\net10.0\TpInterfaces.deps.json
+C:\Users\BLEURVACQ\TpInterfaces\bin\Debug\net10.0\TpInterfaces.runtimeconfig.json
+C:\Users\BLEURVACQ\TpInterfaces\bin\Debug\net10.0\TpInterfaces.dll
+C:\Users\BLEURVACQ\TpInterfaces\bin\Debug\net10.0\TpInterfaces.pdb
+C:\Users\BLEURVACQ\TpInterfaces\obj\Debug\net10.0\TpInterfaces.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\BLEURVACQ\TpInterfaces\obj\Debug\net10.0\TpInterfaces.AssemblyInfoInputs.cache
+C:\Users\BLEURVACQ\TpInterfaces\obj\Debug\net10.0\TpInterfaces.AssemblyInfo.cs
+C:\Users\BLEURVACQ\TpInterfaces\obj\Debug\net10.0\TpInterfaces.csproj.CoreCompileInputs.cache
+C:\Users\BLEURVACQ\TpInterfaces\obj\Debug\net10.0\TpInterfaces.sourcelink.json
+C:\Users\BLEURVACQ\TpInterfaces\obj\Debug\net10.0\TpInterfaces.dll
+C:\Users\BLEURVACQ\TpInterfaces\obj\Debug\net10.0\refint\TpInterfaces.dll
+C:\Users\BLEURVACQ\TpInterfaces\obj\Debug\net10.0\TpInterfaces.pdb
+C:\Users\BLEURVACQ\TpInterfaces\obj\Debug\net10.0\TpInterfaces.genruntimeconfig.cache
+C:\Users\BLEURVACQ\TpInterfaces\obj\Debug\net10.0\ref\TpInterfaces.dll
