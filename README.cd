@@ -46,3 +46,16 @@
 
 5. **Peut-on écrire `element.Prix` ? Pourquoi ?**
    - Non. La variable est de type `IAffichable`, le compilateur ne connaît donc que les membres déclarés dans l'interface `IAffichable`. La propriété `Prix` n'existant que dans `Produit`, elle n'est pas accessible directement depuis cette variable.
+
+
+## Exercice 4 — Une méthode utilisant une interface
+
+### Questions
+1. **A-t-il été nécessaire de modifier `AfficherElement()` pour afficher la `Commande` ?**
+   - Non, aucune modification n'a été nécessaire.
+
+2. **Pourquoi cette méthode peut-elle accepter des objets de classes différentes ?**
+   - Parce que son paramètre est de type `IAffichable`. La méthode accepte donc n'importe quelle instance d'une classe qui implémente cette interface.
+
+3. **Quel serait l'inconvénient d'écrire uniquement `public static void AfficherProduit(Produit produit)` ?**
+   - On devrait dupliquer la méthode pour chaque type d'objet (`AfficherClient`, `AfficherCommande`, etc.), ce qui crée du code redondant, rigide et difficile à maintenir.

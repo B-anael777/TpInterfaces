@@ -1,7 +1,12 @@
-﻿// Utilisation du type IAffichable avec un Produit
-IAffichable element = new Produit("Clavier", 49.90m);
-element.Afficher();
+﻿var produit = new Produit("Clavier", 49.90m);
+var client = new Client("Alice", "alice@example.com");
+var commande = new Commande(101, 150.00m);
 
-// La même variable référence maintenant un Client
-element = new Client("Alice", "alice@example.com");
-element.Afficher();
+AfficherElement(produit);
+AfficherElement(client);
+AfficherElement(commande);
+
+static void AfficherElement(IAffichable element)
+{
+    element.Afficher();
+}
