@@ -59,3 +59,19 @@
 
 3. **Quel serait l'inconvénient d'écrire uniquement `public static void AfficherProduit(Produit produit)` ?**
    - On devrait dupliquer la méthode pour chaque type d'objet (`AfficherClient`, `AfficherCommande`, etc.), ce qui crée du code redondant, rigide et difficile à maintenir.
+
+
+## Exercice 5 — Une collection d'interfaces
+
+### Questions
+1. **Comment une même collection peut-elle contenir des `Produit`, des `Client` et des `Commande` ?**
+   - Parce que la liste est typée par l'interface `List<IAffichable>`. Elle accepte donc n'importe quel objet dont la classe implémente `IAffichable`.
+
+2. **Quel est leur point commun ?**
+   - Elles implémentent toutes l'interface `IAffichable` (elles ont toutes un contrat commun).
+
+3. **Quelle méthode le compilateur sait-il pouvoir appeler sur chaque élément ?**
+   - Le compilateur sait qu'il peut appeler la méthode `Afficher()`.
+
+4. **Le programme a-t-il besoin de connaître le type exact de chaque objet pour appeler `Afficher()` ?**
+   - Non, le compilateur s'en fiche. Grâce au polymorphisme, C# appelle automatiquement la bonne méthode `Afficher()` de chaque objet à l'exécution.
