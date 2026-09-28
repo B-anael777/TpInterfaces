@@ -68,3 +68,37 @@
 ### Complétion
 - L'héritage décrit principalement ce qu'un objet **EST**.
 - Une interface décrit principalement ce qu'un objet **SAIT FAIRE** (ou possède comme capacité).
+
+## Exercice 8 — Système de notifications
+
+### Questions
+1. **Comment `EnvoyerNotification()` peut-elle fonctionner sans connaître la classe exacte ?**
+   - Elle manipule l'objet via l'interface `INotification`. Grâce au polymorphisme, C# appelle la méthode `Envoyer()` propre à l'instance réelle au moment de l'exécution.
+2. **Quelle méthode l'interface garantit-elle ?**
+   - La méthode `Envoyer(string message)`.
+3. **Pourrait-on ajouter demain une classe `NotificationPush` sans modifier `EnvoyerNotification()` ?**
+   - Oui, il suffira que `NotificationPush` implémente `INotification`.
+
+## Exercice 9 — Calcul des frais bancaires
+
+### Questions
+1. **Pourquoi `AfficherFrais()` utilise-t-elle `ICalculFrais` plutôt que `FraisStandard` ?**
+   - Pour pouvoir accepter tous les types de calcul de frais (standard, premium, sans frais) sans multiplier les méthodes.
+2. **Quelle méthode le contrat `ICalculFrais` garantit-il ?**
+   - La méthode `Calculer(decimal montant)`.
+3. **Le programme qui appelle `Calculer()` a-t-il besoin de savoir comment les frais sont calculés ?**
+   - Non, il a seulement besoin de savoir que la méthode existe et retourne un `decimal`.
+
+## Exercice 10 — Mini-application : modes de livraison
+
+### Questions finales
+1. **Quelle classe faut-il ajouter ?**
+   - La classe `LivraisonInternationale`.
+2. **Quelle interface doit-elle implémenter ?**
+   - L'interface `ICalculLivraison`.
+3. **Pourquoi `AfficherTotal()` continue-t-elle à fonctionner sans modification ?**
+   - Parce qu'elle ne dépend d'aucune classe concrète, mais uniquement de l'interface `ICalculLivraison`.
+4. **Quel avantage apporte ici l'utilisation de l'interface ?**
+   - Elle rend le code évolutif et découplé : on peut ajouter de nouveaux modes de livraison sans toucher au code existant.
+5. **Que signifie la phrase "Une interface décrit ce qu'un objet sait faire, sans dire comment il le fait" ?**
+   - L'interface définit uniquement la signature des méthodes (le contrat), tandis que chaque classe définit son algorithme interne spécifique pour accomplir cette tâche.
