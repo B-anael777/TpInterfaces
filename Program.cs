@@ -1,9 +1,20 @@
-﻿AfficherFrais(new FraisStandard(), 1000m);
-AfficherFrais(new FraisPremium(), 1000m);
-AfficherFrais(new SansFrais(), 1000m);
+﻿Console.WriteLine("--- Commande de 40 € ---");
+AfficherTotal(40m, new LivraisonStandard());
+AfficherTotal(40m, new LivraisonExpress());
+AfficherTotal(40m, new RetraitMagasin());
 
-static void AfficherFrais(ICalculFrais calcul, decimal montant)
+Console.WriteLine("\n--- Commande de 100 € ---");
+AfficherTotal(100m, new LivraisonStandard());
+AfficherTotal(100m, new LivraisonExpress());
+AfficherTotal(100m, new RetraitMagasin());
+
+Console.WriteLine("\n--- Évolution : Livraison Internationale ---");
+AfficherTotal(40m, new LivraisonInternationale());
+
+static void AfficherTotal(decimal montantCommande, ICalculLivraison calculLivraison)
 {
-    decimal frais = calcul.Calculer(montant);
-    Console.WriteLine($"Montant : {montant:F2} € | Frais : {frais:F2} €");
+    decimal frais = calculLivraison.Calculer(montantCommande);
+    decimal total = montantCommande + frais;
+
+    Console.WriteLine($"Commande : {montantCommande:F2} € | Frais : {frais:F2} € | Total : {total:F2} €");
 }
